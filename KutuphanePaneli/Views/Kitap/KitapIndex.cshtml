@@ -1,0 +1,96 @@
+﻿@model IEnumerable<KutuphanePaneli.Models.TblKitap>
+
+@{
+    ViewData["Title"] = "Kitaplar";
+}
+
+
+
+<h1 class="h3 mb-2 text-gray-800"> Kitaplar</h1>
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary"> <a asp-controller="Kitap" asp-action="KitapEkle" class="btn btn-info">Yeni Kitap Ekle</a></h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>
+                            Kitap
+                        </th>
+                        <th>
+                            Kategori
+                        </th>
+                        <th>
+                            Yazar
+                        </th>
+                        <th>
+                            Basım Yılı
+                        </th>
+                        <th>
+                            Yayınevi
+                        </th>
+                        <th>
+                            Sayfa Sayısı
+                        </th>
+                        <th>
+                            Durum
+                        </th>
+                        <th>
+
+                        </th>
+                        <th>
+
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Ad)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.KategoriNavigation.Ad)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.YazarNavigation.Ad) &nbsp; @Html.DisplayFor(modelItem => item.YazarNavigation.Soyad)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Basimyili)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Yayinevi)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Sayfasayisi)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Durum)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Guncelle", "KitapGetir", "Kitap",
+                                    new { id = item.Id },
+                                    new { @class = "btn btn-success" })
+                            </td>
+                            <td>
+
+                                @Html.ActionLink("Sil", "KitapSil", "Kitap",
+                                new { id = item.Id },
+                                new { @class = "btn btn-danger" }
+
+                                    )
+
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+           
+        </div>
+    </div>
+</div>

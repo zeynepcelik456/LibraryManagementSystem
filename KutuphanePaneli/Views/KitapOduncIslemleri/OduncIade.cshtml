@@ -1,0 +1,46 @@
+﻿@model KutuphanePaneli.Models.TblHareket
+
+@{
+    ViewData["Title"] = "OduncIade";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="OduncGuncelle" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Uye" class="control-label"></label>
+                <select asp-for="Uye" class="form-control" asp-items="ViewBag.Uye"></select>
+                <span asp-validation-for="Uye" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Kitap" class="control-label"></label>
+                <select asp-for="Kitap" class="form-control" asp-items="ViewBag.Kitap"></select>
+                <span asp-validation-for="Kitap" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Personel" class="control-label"></label>
+                <select asp-for="Personel" class="form-control" asp-items="ViewBag.Personel"></select>
+                <span asp-validation-for="Personel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Alistarihi" class="control-label"></label>
+                <input asp-for="Alistarihi" class="form-control" />
+                <span asp-validation-for="Alistarihi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Iadetarihi" class="control-label"></label>
+                <input asp-for="Iadetarihi" class="form-control" />
+                <span asp-validation-for="Iadetarihi" value="@DateTime.Now" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Kitabı Geri Al" class="btn btn-warning" />
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<KutuphanePaneli.Models.TblPersonel>
+
+@{
+    ViewData["Title"] = "PersonelIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="h3 mb-2 text-gray-800"> Personeller</h1>
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary"> <a asp-controller="Personel" asp-action="PersonelEkle" class="btn btn-info">Yeni Personel Ekle</a></h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>
+                            Personel Adı Soyadı
+                        </th>
+                        <th>
+                            Kullanıcı Adı
+                        </th>
+                        <th>
+                            Şifre
+                        </th>
+                        <th>
+
+                        </th>
+                        <th>
+
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Personel)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Username)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Password)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Guncelle", "PersonelGetir", "Personel",
+                                    new { id = item.Id },
+                                    new { @class = "btn btn-success" })
+                            </td>
+                            <td>
+
+                                @Html.ActionLink("Sil", "PersonelSil", "Personel",
+                                new { id = item.Id },
+                                new { @class = "btn btn-danger" }
+
+                               )
+
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

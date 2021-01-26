@@ -1,0 +1,26 @@
+﻿@model KutuphanePaneli.Models.TblPersonel
+
+@{
+    ViewData["Title"] = "Giriş";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+<form action="#" method="post">
+    <div class="form-group first">
+        <label for="username">Kullanıcı Adı</label>
+        <input type="text" asp-for="Username" class="form-control"  >
+
+    </div>
+    <br />
+    <br />
+    <div class="form-group last mb-4">
+        <label for="password">Şifre</label>
+        <input type="password" class="form-control"   asp-for="Password" >
+
+    </div>
+
+
+    <input type="submit" value="Giriş Yap" class="btn btn-block btn-primary">
+
+    
+</form>
+

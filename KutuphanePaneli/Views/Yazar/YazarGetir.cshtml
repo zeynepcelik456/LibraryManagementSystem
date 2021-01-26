@@ -1,0 +1,29 @@
+﻿@model KutuphanePaneli.Models.TblYazar
+
+@{
+    ViewData["Title"] = "Yazar Güncelle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="YazarGuncelle" asp-controller="Yazar" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Ad" class="control-label">Yazar Adı</label>
+                <input asp-for="Ad" class="form-control" />
+                <span asp-validation-for="Ad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Soyad" class="control-label">Yazar Soyadı</label>
+                <input asp-for="Soyad" class="form-control" />
+                <span asp-validation-for="Soyad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Güncelle" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+

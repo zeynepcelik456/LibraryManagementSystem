@@ -1,0 +1,39 @@
+﻿@model KutuphanePaneli.Models.TblUye
+
+@{
+    ViewData["Title"] = "Uye Güncelle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="UyeGuncelle" asp-controller="Uye" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Ad" class="control-label">Ad</label>
+                <input asp-for="Ad" class="form-control" />
+                <span asp-validation-for="Ad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Soyad" class="control-label">Soyad</label>
+                <input asp-for="Soyad" class="form-control" />
+                <span asp-validation-for="Soyad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Maİl" class="control-label">Mail</label>
+                <input asp-for="Maİl" class="form-control" />
+                <span asp-validation-for="Maİl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Telefon" class="control-label">Telefon</label>
+                <input asp-for="Telefon" class="form-control" />
+                <span asp-validation-for="Telefon" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Güncelle" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

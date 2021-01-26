@@ -1,0 +1,49 @@
+﻿@model KutuphanePaneli.Models.TblKitap
+
+@{
+    ViewData["Title"] = "Kitap Ekle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="KitapEkle">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Ad" class="control-label">Kitap Adı</label>
+                <input asp-for="Ad" class="form-control" />
+                <span asp-validation-for="Ad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Kategori" class="control-label">Kategori</label>
+                <select asp-for="Kategori" class="form-control" asp-items="ViewBag.Kategori"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Yazar" class="control-label">Yazar</label>
+                <select asp-for="Yazar" class="form-control" asp-items="ViewBag.Yazar"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Basimyili" class="control-label">Basım Yılı</label>
+                <input asp-for="Basimyili" class="form-control" />
+                <span asp-validation-for="Basimyili" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Yayinevi" class="control-label">Yayınevi</label>
+                <input asp-for="Yayinevi" class="form-control" />
+                <span asp-validation-for="Yayinevi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sayfasayisi" class="control-label">Sayfa Sayısı</label>
+                <input asp-for="Sayfasayisi" class="form-control" />
+                <span asp-validation-for="Sayfasayisi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Ekle" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+

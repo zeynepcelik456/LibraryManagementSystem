@@ -1,0 +1,85 @@
+﻿@model IEnumerable<KutuphanePaneli.Models.TblUye>
+
+@{
+    ViewData["Title"] = "Uyeler";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="h3 mb-2 text-gray-800"> Üyeler</h1>
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary"> <a asp-controller="Uye" asp-action="UyeEkle" class="btn btn-info">Yeni Uye Ekle</a></h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                Ad
+                            </th>
+                            <th>
+                                Soyad
+                            </th>
+                            <th>
+                                Mail
+                            </th>
+                            <th>
+                                Telefon
+                            </th>
+                            <th>
+
+                            </th>
+                            <th>
+
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Ad)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Soyad)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Maİl)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Telefon)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Guncelle", "UyeGetir", "Uye",
+                                        new { id = item.Id },
+                                        new { @class = "btn btn-success" })
+                                </td>
+                                <td>
+
+                                    @Html.ActionLink("Sil", "UyeSil", "Uye",
+                                    new { id = item.Id },
+                                    new { @class = "btn btn-danger" }
+
+                                   )
+
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+
+
+
+
+            </table>
+
+
+        </div>
+    </div>
+</div>

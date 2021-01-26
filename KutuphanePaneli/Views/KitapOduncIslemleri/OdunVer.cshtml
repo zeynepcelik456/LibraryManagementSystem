@@ -1,0 +1,39 @@
+﻿@model KutuphanePaneli.Models.TblHareket
+
+@{
+    ViewData["Title"] = "Ödünç Ver";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="OdunVer" asp-controller="KitapOduncIslemleri" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Uye" class="control-label">Üye</label>
+                <select asp-for="Uye" class="form-control" asp-items="@ViewBag.Uye"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Kitap" class="control-label">Kitap</label>
+                <select asp-for="Kitap" class="form-control" asp-items="@ViewBag.Kitap"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Personel" class="control-label">Personel</label>
+                <select asp-for="Personel" class="form-control" asp-items="@ViewBag.Personel"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Alistarihi" class="control-label">Alış Tarihi</label>
+                <input asp-for="Alistarihi" class="form-control" />
+                <span asp-validation-for="Alistarihi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Iadetarihi" class="control-label">İade Edilmesi Gereken Tarih</label>
+                <input asp-for="Iadetarihi" class="form-control" />
+                <span asp-validation-for="Iadetarihi" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Ödünç Ver" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

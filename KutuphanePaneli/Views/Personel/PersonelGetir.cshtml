@@ -1,0 +1,34 @@
+﻿@model KutuphanePaneli.Models.TblPersonel
+
+@{
+    ViewData["Title"] = "Personel Güncelle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="PersonelGuncelle" asp-controller="Personel" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Personel" class="control-label">Personel Adı Soyadı</label>
+                <input asp-for="Personel" class="form-control" />
+                <span asp-validation-for="Personel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Username" class="control-label">Kullanıcı Adı</label>
+                <input asp-for="Username" class="form-control" />
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label">Şifre</label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Güncelle" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

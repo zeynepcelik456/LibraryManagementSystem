@@ -1,0 +1,73 @@
+﻿@model IEnumerable<KutuphanePaneli.Models.TblHareket>
+
+@{
+    ViewData["Title"] = "Kitabı Geri Al";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="h3 mb-2 text-gray-800"> Kitaplar Geri Al</h1>
+<div class="card shadow mb-4">
+
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>
+                            Üye
+                        </th>
+                        <th>
+                            Kitap
+                        </th>
+                        <th>
+                            Personel
+                        </th>
+                        <th>
+                            Alış Tarihi
+                        </th>
+                        <th>
+                            İade Tarihi
+                        </th>
+                        <th>
+
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.UyeNavigation.Ad) &nbsp; @Html.DisplayFor(modelItem => item.UyeNavigation.Soyad)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.KitapNavigation.Ad)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PersonelNavigation.Personel)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Alistarihi)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Iadetarihi)
+                            </td>
+
+                            <td>
+                                @Html.ActionLink("Kitabı Geri Al", "OduncIade", "KitapOduncIslemleri",
+                                                            new { id = item.Id },
+                                                            new { @class = "btn btn-primary" })
+
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+
+
+            </table>
+
+        </div>
+    </div>
+</div>

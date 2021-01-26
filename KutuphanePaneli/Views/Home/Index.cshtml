@@ -1,0 +1,139 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model IEnumerable<KutuphanePaneli.Models.TblHareket>
+
+
+<div class="row">
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                            <p class="card-category">Toplam Kitap Sayısı</p>
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">@ViewBag.tk</div>
+                        <div class="col-auto">
+                            <i class="fas fa-book fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-success shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                            Toplam Üye Sayısı
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">@ViewBag.tu</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-user fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-info shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                            Toplam Yazar Sayısı
+                        </div>
+                        <div class="row no-gutters align-items-center">
+                            <div class="col-auto">
+                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">@ViewBag.ty</div>
+                            </div>
+                            <div class="col">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-user-edit fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-warning shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                            Toplam İşlem Sayısı
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">@ViewBag.tı</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-key fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Yapılan Tüm İşlemler</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>
+                            Kitap
+                        </th>
+                        <th>
+                            Üye
+                        </th>
+                        <th>
+                            Personel
+                        </th>
+                        <th>
+                            İşlem Durumu
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.KitapNavigation.Ad)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.UyeNavigation.Ad)&nbsp;   @Html.DisplayFor(modelItem => item.UyeNavigation.Soyad)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PersonelNavigation.Personel)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Islemdurum)
+                            </td>
+
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
